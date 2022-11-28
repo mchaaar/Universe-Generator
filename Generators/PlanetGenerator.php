@@ -1,9 +1,10 @@
 <?php
 
 require('Objects/Planet.php');
+require('Generators/NameGenerator.php');
 
 function GenerateNewPlanet(){
-
-    return new Planet('abc');
-
+    
+    $planet = new Planet(GenerateNewName('human'));
+    return $planet;
 }
