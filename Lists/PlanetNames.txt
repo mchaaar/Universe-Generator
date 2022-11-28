@@ -226,7 +226,7 @@ Pelias
 Pelops
 Penates
 Penelope
-Persephone 
+Persephone
 Proserpine
 Perseus
 Phaedra
@@ -460,7 +460,7 @@ Tartarus
 Polyphemus
 Hephaestus
 Daemons
- Ceramici
+Ceramici
 Damysus
 Thrace
 Dryad
