@@ -12,7 +12,7 @@ function GenerateNewName(string $type){
         case 'planet':
             $planetNamesFile = "Lists/PlanetNames.txt";
             $planetNames = file($planetNamesFile);
-            return $planetNames[rand(0, 2093)];
+            return $planetNames[rand(0, 611)];
         case 'system':
             $systemNamesFile = "Lists/FirstNames.txt";
             $systemNames = file($systemNamesFile);
