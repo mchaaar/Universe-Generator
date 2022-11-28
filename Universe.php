@@ -1,10 +1,10 @@
 <?php
 
-require('Objects/System.php');
-require('Objects/Planet.php');
+require('Generators/PlanetGenerator.php');
+require('Generators/SystemGenerator.php');
 
-$system = new System('The Solar System');
-$planet = new Planet('Earth');
+$planet = GenerateNewPlanet();
+$system = GenerateNewSystem();
 
-var_dump($system);
 var_dump($planet);
+var_dump($system);
