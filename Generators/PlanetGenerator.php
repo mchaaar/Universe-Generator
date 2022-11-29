@@ -1,7 +1,7 @@
 <?php
 
 require('Objects/Planet.php');
-require('Generators/NameGenerator.php');
+include_once('Generators/NameGenerator.php');
 
 function GenerateNewPlanet(){
 

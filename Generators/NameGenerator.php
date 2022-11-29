@@ -14,7 +14,7 @@ function GenerateNewName(string $type){
             $planetNames = file($planetNamesFile);
             return $planetNames[rand(0, 593)];
         case 'system':
-            $systemNamesFile = "Lists/FirstNames.txt";
+            $systemNamesFile = "Lists/SystemNames.txt";
             $systemNames = file($systemNamesFile);
             return $systemNames[rand(0, 16)];
     }
