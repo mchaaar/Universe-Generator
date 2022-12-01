@@ -8,7 +8,7 @@ function GenerateNewSystem(){
 
     $system = new System(GenerateNewName('system'));
 
-    for ($i = rand(0, 8); $i < 12; $i++){
+    for ($i = rand(0, 10); $i < 12; $i++){
         array_push($system->planets, GenerateNewPlanet());
     }
 

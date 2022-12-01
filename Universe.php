@@ -2,5 +2,10 @@
 
 require('Generators/SystemGenerator.php');
 
-$system = GenerateNewSystem();
-var_dump($system);
+$systems = [];
+
+for ($i = 0; $i < 1; $i++){
+    array_push($systems, GenerateNewSystem());
+}
+
+var_dump($systems);
