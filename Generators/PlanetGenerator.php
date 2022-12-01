@@ -13,7 +13,9 @@ function GenerateNewPlanet(){
         GenerateInhabitants(),
     );
 
-    $planet->diplomaticScale = $planet->inhabited ? $planet->inhabitantsAmount / 10 : 0;
+    if ($planet->inhabited){
+        $planet->diplomaticScale = $planet->inhabitantsAmount <= 9 ? 1 : $planet->inhabitantsAmount / 10 ;
+    }
     
     return $planet;
 }

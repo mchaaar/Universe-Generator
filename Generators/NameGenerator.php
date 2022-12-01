@@ -16,6 +16,6 @@ function GenerateNewName(string $type){
         case 'system':
             $systemNamesFile = "Lists/SystemNames.txt";
             $systemNames = file($systemNamesFile);
-            return $systemNames[rand(0, 16)];
+            return $systemNames[rand(0, 2)];
     }
 }

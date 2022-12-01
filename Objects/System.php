@@ -2,7 +2,7 @@
 
 class System {
 
-    protected string $name;
+    public string $name;
     public $planets = [];
 
     public function __construct(string $name) {
