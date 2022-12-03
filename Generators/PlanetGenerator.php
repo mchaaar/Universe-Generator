@@ -3,7 +3,11 @@
 require('Objects/Planet.php');
 include_once('Generators/NameGenerator.php');
 
+global $usedNames;
+
 function GenerateNewPlanet(){
+
+    global $usedNames;
 
     $planet = new Planet(
         GenerateNewName('planet'),
@@ -17,6 +21,7 @@ function GenerateNewPlanet(){
         $planet->diplomaticScale = $planet->inhabitantsAmount <= 9 ? 1 : $planet->inhabitantsAmount / 10 ;
     }
     
+    $usedNames = 1;
     return $planet;
 }
 
@@ -32,4 +37,24 @@ function GenerateInhabitants(){
     }
 
     return $amount;
+}
+
+function CheckForSameName(string $name){
+
+    $result = false;
+
+    switch ($type){
+        case 'planet':
+            if (in_array($name, $usedPlanetNames)){
+                $result = true;
+            }
+            break;
+        case 'system':
+            if (in_array($name, $usedSystemNames)){
+                $result = true;
+            }
+            break;
+    }
+
+    return $result;
 }

@@ -2,8 +2,8 @@
 
 class Planet {
 
-    protected string $name;
-    protected int $size;
+    public string $name;
+    public int $size;
     public bool $inhabited;
     public int $inhabitantsAmount;
     public int $diplomaticScale;

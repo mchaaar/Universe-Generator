@@ -1,6 +1,11 @@
 <?php
 
+$usedPlanetNames = [];
+$usedSystemNames = [];
+
 function GenerateNewName(string $type){
+
+    global $usedNames;
 
     switch ($type){
         case 'human':
@@ -12,7 +17,9 @@ function GenerateNewName(string $type){
         case 'planet':
             $planetNamesFile = "Lists/PlanetNames.txt";
             $planetNames = file($planetNamesFile);
-            return $planetNames[rand(0, 593)];
+            $chosenName = $planetNames[rand(0, 593)];
+            CheckSameName($type, $chosenName) ? GenerateNewName($type) : array_push($usedPlanetNames, $chosenName);
+            return $chosenName;
         case 'system':
             $systemNamesFile = "Lists/SystemNames.txt";
             $systemNames = file($systemNamesFile);

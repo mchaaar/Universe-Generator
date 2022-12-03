@@ -9,7 +9,9 @@ function GenerateNewSystem(){
     $system = new System(GenerateNewName('system'));
 
     for ($i = rand(0, 10); $i < 12; $i++){
-        array_push($system->planets, GenerateNewPlanet());
+        $planet = GenerateNewPlanet();
+        array_push($system->planets, $planet);
+        array_push($system->planetNames, $planet->name);
     }
 
     return $system;
