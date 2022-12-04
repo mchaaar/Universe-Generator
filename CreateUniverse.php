@@ -13,6 +13,8 @@ for ($i = 1; $i <= 10; $i++){
     fopen('Output/' . $fileName . '.txt', 'w');
 }
 
+var_dump($systems);
+
 function DeleteOldFiles(){
 
     $files = glob('Output'.'/*'); 
