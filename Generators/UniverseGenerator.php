@@ -4,16 +4,25 @@ require('Generators/SystemGenerator.php');
 
 $systems = [];
 
-DeleteOldFiles();
+function GenerateNewUniverse(int $amountOfSystems, int $maxPlanetsPerSystem, string $outputType, bool $deleteOldFiles = true){
 
-for ($i = 1; $i <= 10; $i++){
-    $system = GenerateNewSystem();
-    array_push($systems, $system);
-    $fileName = $i . '-' . trim($system->name);
-    fopen('Output/' . $fileName . '.txt', 'w');
+    global $systems;
+
+    if ($deleteOldFiles){
+        DeleteOldFiles();
+    }
+
+    for ($i = 1; $i <= $amountOfSystems; $i++){
+
+        $system = GenerateNewSystem($maxPlanetsPerSystem);
+        array_push($systems, $system);
+
+        if ($outputType == 'txt'){
+            $fileName = $i . '-' . trim($system->name);
+            fopen('Output/' . $fileName . '.txt', 'w');
+        }
+    }
 }
-
-var_dump($systems);
 
 function DeleteOldFiles(){
 
@@ -21,7 +30,7 @@ function DeleteOldFiles(){
    
     foreach($files as $file) {
 
-        if(is_file($file)) {
+        if (is_file($file)) {
             unlink($file); 
         }
     }
