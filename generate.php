@@ -2,6 +2,10 @@
 
 require('Generators/UniverseGenerator.php');
 
+// require('Settings/SettingsLoader.php');
+
+// LoadSettings();
+
 // The following values are the default ones
 // and will be used if no custom parameters are typed in the generate command.
 
