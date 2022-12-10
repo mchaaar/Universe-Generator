@@ -1,13 +1,9 @@
 <?php
 
 require('Generators/UniverseGenerator.php');
+require('Settings/SettingsLoader.php');
 
-// require('Settings/SettingsLoader.php');
-
-// LoadSettings();
-
-// The following values are the default ones
-// and will be used if no custom parameters are typed in the generate command.
+$settings = LoadSettings();
 
 $defaultGen = [
     10,     // amount of systems generated.
@@ -31,10 +27,7 @@ else if (count($argv) == 5 && CheckForErrors($argv)){
 
 function CheckForErrors($args){
 
-
-
     $a = array(new TestClass);
-
 
     global $allowedOutputTypes;
     global $allowedFourthArguments;
@@ -63,6 +56,7 @@ function CheckForErrors($args){
 
     return $result;
 }
+
 class TestClass {
     public string $name;
     public int $amount;
