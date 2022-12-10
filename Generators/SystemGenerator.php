@@ -3,6 +3,7 @@
 use function PHPSTORM_META\type;
 
 include_once('Generators/NameGenerator.php');
+require('Generators/ArtificialBodyGenerator');
 require('Generators/AsteroidGenerator.php');
 require('Generators/PlanetGenerator.php');
 require('Generators/RomanGenerator.php');
@@ -71,6 +72,12 @@ function GenerateNewSystem($maxPlanetsPerSystem, $fileIndex, string $outputType)
         $asteroid = GenerateNewAsteroid();
         array_push($system->asteroids, $asteroid);
     }
+
+    for ($i = 0; $i < 10; $i++){
+        $artificialBody = GenerateNewArtificialBody();
+        array_push($system->artificialBodies, $artificialBody);
+    }
+
     return $system;
 }
 

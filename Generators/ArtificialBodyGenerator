@@ -1,0 +1,15 @@
+<?php
+
+include_once('Generators/NameGenerator.php');
+require('Objects/ArtificialBody.php');
+
+function GenerateNewArtificialBody(){
+
+    $artificialBody = new ArtificialBody(
+        trim(GenerateNewName('artificialBody')),
+        rand(1,10),
+       'material',
+    );
+
+    return $artificialBody;
+}

@@ -24,5 +24,9 @@ function GenerateNewName(string $type){
             $asteroidNamesFile = "Lists/AsteroidNames.txt";
             $asteroidNames = file($asteroidNamesFile);
             return $asteroidNames[rand(0, count($asteroidNames) -1)];
+        case 'artificialBody':
+            $artificialBodyNamesFile = "Lists/ArtificialBodyNames.txt";
+            $artificialBodyNames = file($artificialBodyNamesFile);
+            return $artificialBodyNames[rand(0, count($artificialBodyNames) -1)];
     }
 }

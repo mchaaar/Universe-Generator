@@ -16,6 +16,7 @@ function GenerateNewUniverse(int $amountOfSystems, int $maxPlanetsPerSystem, str
 
         $system = GenerateNewSystem($maxPlanetsPerSystem, $i, $outputType);
         array_push($systems, $system);
+        var_dump($system);
     }
 }
 
