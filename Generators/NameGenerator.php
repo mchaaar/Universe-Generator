@@ -1,8 +1,5 @@
 <?php
 
-$usedPlanetNames = [];
-$usedSystemNames = [];
-
 function GenerateNewName(string $type){
 
     global $usedNames;
@@ -23,5 +20,9 @@ function GenerateNewName(string $type){
             $systemNamesFile = "Lists/SystemNames.txt";
             $systemNames = file($systemNamesFile);
             return $systemNames[rand(0, count($systemNames) - 1)];
+        case 'asteroid':
+            $asteroidNamesFile = "Lists/AsteroidNames.txt";
+            $asteroidNames = file($asteroidNamesFile);
+            return $asteroidNames[rand(0, count($asteroidNames) -1)];
     }
 }
