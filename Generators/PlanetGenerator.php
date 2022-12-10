@@ -10,7 +10,7 @@ function GenerateNewPlanet(){
     //global $usedNames;
 
     $planet = new Planet(
-        GenerateNewName('planet'),
+        trim(GenerateNewName('planet')),
         rand(1, 10),
         rand(1, 10) <= 3 ? true : false,
         rand(1, 100) <= 90 ? rand(1, 30) : rand(31, 100),
@@ -18,7 +18,7 @@ function GenerateNewPlanet(){
     );
 
     if ($planet->inhabited){
-        $planet->diplomaticScale = $planet->inhabitantsAmount <= 9 ? 1 : $planet->inhabitantsAmount / 10 ;
+        $planet->diplomaticScale = $planet->inhabitantsAmount <= 9 ? 1 : 1 ;
     }
     
     return $planet;
@@ -37,23 +37,3 @@ function GenerateInhabitants(){
 
     return $amount;
 }
-
-/*function CheckForSameName(string $name){
-
-    $result = false;
-
-    switch ($type){
-        case 'planet':
-            if (in_array($name, $usedPlanetNames)){
-                $result = true;
-            }
-            break;
-        case 'system':
-            if (in_array($name, $usedSystemNames)){
-                $result = true;
-            }
-            break;
-    }
-
-    return $result;
-}*/
