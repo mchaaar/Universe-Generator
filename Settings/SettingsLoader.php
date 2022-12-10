@@ -1,6 +1,6 @@
 <?php
 
-require('Settings/GeneralSettings.txt');
+require('Objects/Settings.php');
 
 function LoadSettings(){
 
@@ -9,10 +9,20 @@ function LoadSettings(){
     $cleanSettings = [];
 
     for ($i = 0; $i < count($settings); $i++){
-        $cleanSetting = explode(" ", $settings[$i]);
-        array_push($cleanSettings, $cleanSetting[1]);
+        $cleanSetting = explode('=', $settings[$i]);
+        array_push($cleanSettings, trim($cleanSetting[1]));
     }
 
-    var_dump($cleanSettings);
+    $finalSettings = new Settings(
+        $cleanSettings[0],
+        $cleanSettings[1],
+        $cleanSettings[2],
+        $cleanSettings[3],
+        $cleanSettings[4],
+        $cleanSettings[5] == 'true' ? true : false,
+        'txt',
+    );
 
+    var_dump($cleanSettings);
+    return $finalSettings;
 }

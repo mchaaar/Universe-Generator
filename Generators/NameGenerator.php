@@ -18,7 +18,6 @@ function GenerateNewName(string $type){
             $planetNamesFile = "Lists/PlanetNames.txt";
             $planetNames = file($planetNamesFile);
             $chosenName = $planetNames[rand(0, count($planetNames) - 1)];
-            //CheckSameName($type, $chosenName) ? GenerateNewName($type) : array_push($usedPlanetNames, $chosenName);
             return $chosenName;
         case 'system':
             $systemNamesFile = "Lists/SystemNames.txt";
