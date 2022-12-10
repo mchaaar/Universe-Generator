@@ -7,13 +7,24 @@ require('Generators/PlanetGenerator.php');
 require('Objects/System.php');
 require('Generators/RomanGenerator.php');
 
-function GenerateNewSystem($maxPlanetsPerSystem){
+$entries = '';
+
+function GenerateNewSystem($maxPlanetsPerSystem, $fileIndex, string $outputType){
+
+    global $entries;
 
     $system = new System(GenerateNewName('system'));
     $planetOccurences = array();
-    $firstIteration = rand(0, $maxPlanetsPerSystem - 1);
+    $firstIteration = rand(1, $maxPlanetsPerSystem);
     
-    for ($i = $firstIteration; $i < $maxPlanetsPerSystem; $i++){
+    if ($outputType == 'txt'){
+        $fileName = $fileIndex . '-' . trim($system->name);
+        fopen('Output/' . $fileName . '.txt', 'w');
+    }
+    
+    $entries = 'System Name: ' . $system->name . "\n" . 'Amount of Planets: ' . $maxPlanetsPerSystem+1 - $firstIteration . "\n\n";
+
+    for ($i = $firstIteration; $i <= $maxPlanetsPerSystem; $i++){
 
         $planet = GenerateNewPlanet();
         $occured = false;
@@ -46,11 +57,31 @@ function GenerateNewSystem($maxPlanetsPerSystem){
 
         if ($valid){
             array_push($system->planets, $planet);
+            OutputPlanet($planet, 'Output/' . $fileName . '.txt', $system);
         }
 
         else{
             $i -= 1;
         }
     }
+    file_put_contents('Output/' . $fileName . '.txt', $entries);
     return $system;
+}
+
+function OutputPlanet(Planet $planet, $filePath, $system){
+    global $entries;
+    $entries .= $planet->name . "\n";
+    $entries .= '   -Size: ';
+    $entries .= $planet->size . "\n";
+    $entries .= '   -Inhabited: ';
+    $entries .= $planet->inhabited ? 'yes' . "\n" : 'no' . "\n";
+
+    if ($planet->inhabited){
+        $entries .= '   -Inhabitants Amount: ';
+        $entries .= $planet->inhabitantsAmount . "\n";
+        $entries .= '   -Diplomatic Scale: ';
+        $entries .= $planet->diplomaticScale . "\n";
+    }
+    
+    $entries .= "\n";
 }

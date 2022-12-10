@@ -14,13 +14,8 @@ function GenerateNewUniverse(int $amountOfSystems, int $maxPlanetsPerSystem, str
 
     for ($i = 1; $i <= $amountOfSystems; $i++){
 
-        $system = GenerateNewSystem($maxPlanetsPerSystem);
+        $system = GenerateNewSystem($maxPlanetsPerSystem, $i, $outputType);
         array_push($systems, $system);
-
-        if ($outputType == 'txt'){
-            $fileName = $i . '-' . trim($system->name);
-            fopen('Output/' . $fileName . '.txt', 'w');
-        }
     }
 }
 
