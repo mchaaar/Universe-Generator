@@ -26,11 +26,12 @@ function GenerateNewUniverse(int $amountOfSystems, int $maxPlanetsPerSystem, str
 
 function DeleteOldFiles(){
 
-    $files = glob('Output'.'/*'); 
+    $files = glob('Output'.'/*');
+    $keep = 'Output/infos.txt';
    
     foreach($files as $file) {
 
-        if (is_file($file)) {
+        if (is_file($file) && basename($file) != basename($keep)) {
             unlink($file); 
         }
     }
