@@ -3,13 +3,12 @@
 class ArtificialBody {
     
     public string $name;
-    public string $material;
     public int $size;
-    //public string $civilicationCreated;
+    public $materials = [];
+    //public string $civilizationCreated;
 
-    public function __construct($name, $size, $material){
+    public function __construct($name, $size){
         $this->name = $name;
         $this->size = $size;
-        $this->material = $material;
     }
 }

@@ -1,6 +1,7 @@
 <?php
 
 include_once('Generators/NameGenerator.php');
+include_once('Generators/MaterialGenerator.php');
 require('Objects/ArtificialBody.php');
 
 function GenerateNewArtificialBody(){
@@ -8,8 +9,9 @@ function GenerateNewArtificialBody(){
     $artificialBody = new ArtificialBody(
         trim(GenerateNewName('artificialBody')),
         rand(1,10),
-       'material',
     );
+
+    $artificialBody->materials = GenerateNewMaterial('artificial');
 
     return $artificialBody;
 }

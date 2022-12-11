@@ -3,7 +3,7 @@
 use function PHPSTORM_META\type;
 
 include_once('Generators/NameGenerator.php');
-require('Generators/ArtificialBodyGenerator');
+require('Generators/ArtificialBodyGenerator.php');
 require('Generators/AsteroidGenerator.php');
 require('Generators/PlanetGenerator.php');
 require('Generators/RomanGenerator.php');
