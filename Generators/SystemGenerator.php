@@ -68,8 +68,8 @@ function GenerateNewSystem($maxPlanetsPerSystem, $fileIndex, string $outputType)
     }
     file_put_contents('Output/' . $fileName . '.txt', $entries);
 
-    for ($i = 0; $i < 10; $i++){
-        $asteroid = GenerateNewAsteroid();
+    for ($i = 1; $i <= 10; $i++){
+        $asteroid = GenerateNewAsteroid(trim($system->name), trim($i));
         array_push($system->asteroids, $asteroid);
     }
 
