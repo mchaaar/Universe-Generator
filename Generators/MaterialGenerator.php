@@ -16,7 +16,7 @@ function GenerateNewMaterial(string $type){
             }
             else {
                 for ($i = 0; $i < rand(2, 6); $i++){
-                    $pick = rand(2, 7);
+                    $pick = rand(2, 15);
                     if (!in_array($pick, $previousPicks)){
                         array_push($chosenMaterials, trim($materials[$pick]));
                         array_push($previousPicks, $pick);
