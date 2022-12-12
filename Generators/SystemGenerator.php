@@ -52,36 +52,53 @@ function GenerateNewSystem($maxPlanetsPerSystem, $fileIndex, string $outputType)
             $occured = true;
         }
 
-        if ($occured == false){
-            $planetOccurences[$planet->name] = 1;
-            $valid = true;
-        }
+        FinalChecks($system, $planet, $fileName, $occured, $valid, $i);
 
-        if ($valid){
-            array_push($system->planets, $planet);
-            OutputPlanet($planet, 'Output/' . $fileName . '.txt', $system);
-        }
-
-        else{
-            $i -= 1;
-        }
     }
+
     file_put_contents('Output/' . $fileName . '.txt', $entries);
+
+    AsteroidGeneration($system);
+    ArtificialBodyGeneration($system);
+
+    return $system;
+}
+
+function FinalChecks(System $system, Planet $planet, string $fileName, bool $occured, bool $valid, int $i){
+
+    if ($occured == false){
+        $planetOccurences[$planet->name] = 1;
+        $valid = true;
+    }
+
+    if ($valid){
+        array_push($system->planets, $planet);
+        OutputPlanet($planet, 'Output/' . $fileName . '.txt', $system);
+    } 
+    
+    else {
+        $i -= 1;
+    }
+}
+
+function AsteroidGeneration($system){
 
     for ($i = 0; $i < 10; $i++){
         $asteroid = GenerateNewAsteroid();
         array_push($system->asteroids, $asteroid);
     }
+}
+
+function ArtificialBodyGeneration($system){
 
     for ($i = 0; $i < 10; $i++){
         $artificialBody = GenerateNewArtificialBody();
         array_push($system->artificialBodies, $artificialBody);
     }
-
-    return $system;
 }
 
 function OutputPlanet(Planet $planet, $filePath, $system){
+
     global $entries;
     $entries .= $planet->name . "\n";
     $entries .= '   -Size: ';

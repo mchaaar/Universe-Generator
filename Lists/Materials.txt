@@ -12,7 +12,7 @@ Ruthenium
 Rhodium
 Silver
 Tin
-Copper
 Manganese
 Chromium
 Aluminum
+Copper
