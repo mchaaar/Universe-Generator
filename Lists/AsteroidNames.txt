@@ -1,3 +1,0 @@
-Asteroid 1
-Asteroid 2
-Asteroid 3
