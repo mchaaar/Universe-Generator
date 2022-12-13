@@ -13,15 +13,7 @@ function LoadSettings(){
         array_push($cleanSettings, trim($cleanSetting[1]));
     }
 
-    $finalSettings = new Settings(
-        $cleanSettings[0],
-        $cleanSettings[1],
-        $cleanSettings[2],
-        $cleanSettings[3],
-        $cleanSettings[4],
-        $cleanSettings[5] == 'true' ? true : false,
-        'txt',
-    );
+    $finalSettings = new Settings();
 
     var_dump($cleanSettings);
     return $finalSettings;
