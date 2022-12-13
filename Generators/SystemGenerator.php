@@ -81,10 +81,10 @@ function FinalChecks(System $system, Planet $planet, string $fileName, bool $occ
     }
 }
 
-function AsteroidGeneration($system){
+function AsteroidGeneration(System $system){
 
     for ($i = 0; $i < 10; $i++){
-        $asteroid = GenerateNewAsteroid();
+        $asteroid = GenerateNewAsteroid($system->name, $i);
         array_push($system->asteroids, $asteroid);
     }
 }
