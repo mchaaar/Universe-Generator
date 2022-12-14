@@ -14,7 +14,6 @@ function LoadSettings(){
     }
 
     $finalSettings = new Settings();
-
-    var_dump($cleanSettings);
+    
     return $finalSettings;
 }
