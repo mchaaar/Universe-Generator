@@ -27,7 +27,7 @@ else if (count($argv) == 5 && CheckForErrors($argv)){
 
 function CheckForErrors($args){
 
-    $a = array(new TestClass);
+    $a = array(new TestCheck);
 
     global $allowedOutputTypes;
     global $allowedFourthArguments;
@@ -57,7 +57,7 @@ function CheckForErrors($args){
     return $result;
 }
 
-class TestClass {
+class TestCheck {
     public string $name;
     public int $amount;
 }
