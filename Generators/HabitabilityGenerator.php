@@ -1,5 +1,8 @@
 <?php
 
-function IsHabitable (){
+function IsHabitable (int $orbitRange){
 
+    $result = false;
+
+    return $result;
 }

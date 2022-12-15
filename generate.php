@@ -1,11 +1,11 @@
 <?php
 
 require('Generators/UniverseGenerator.php');
-require('Settings/SettingsLoader.php');
+require('Dialogue/DialogueStart.php');
 
-$settings = LoadSettings();
+StartDialogue();
 
-$defaultGen = [
+/*$defaultGen = [
     10,     // amount of systems generated.
     12,     // maximum amount of planets per system generated.
     'txt',  // output selected.
@@ -61,3 +61,4 @@ class TestCheck {
     public string $name;
     public int $amount;
 }
+*/
