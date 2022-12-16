@@ -9,7 +9,7 @@ function LoadSettings(){
 
     $settings = [];
 
-    for ($i = 0; $i < count($allSettings); $i++){
+    for ($i = 1; $i < count($allSettings); $i += 3){
         $cleanSetting = explode('=', $allSettings[$i]);
         array_push($settings, intval($cleanSetting[1]));
     }

@@ -13,7 +13,7 @@ MIN_INHABITANTS_PER_PLANETS = 1
 [Ideal amount is 100 but there is no limit (1 = 1 Billion)]
 MAX_INHABITANTS_PER_PLANETS = 100
 
-[0 = no | 1 = yes]
+[0 = no | 1 = yes (Deletes the last batch of generated content)]
 DELETE_OLD_GENERATION = 1
 
 [1 = txt]

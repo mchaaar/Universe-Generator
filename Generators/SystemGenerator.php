@@ -11,7 +11,7 @@ require('Objects/System.php');
 
 $entries = '';
 
-function GenerateNewSystem($maxPlanetsPerSystem, $fileIndex, $outputType){
+function GenerateNewSystem($maxPlanetsPerSystem, $fileIndex, $outputType, $minInhabitants, $maxInhabitants){
 
     global $entries;
 
@@ -28,7 +28,7 @@ function GenerateNewSystem($maxPlanetsPerSystem, $fileIndex, $outputType){
 
     for ($i = $firstIteration; $i <= $maxPlanetsPerSystem; $i++){
 
-        $planet = GenerateNewPlanet();
+        $planet = GenerateNewPlanet($minInhabitants, $maxInhabitants);
         $occured = false;
         $valid = false;
 
@@ -109,8 +109,6 @@ function OutputPlanet(Planet $planet, $filePath, $system){
     if ($planet->inhabited){
         $entries .= '   -Inhabitants Amount: ';
         $entries .= $planet->inhabitantsAmount . "\n";
-        $entries .= '   -Diplomatic Scale: ';
-        $entries .= $planet->diplomaticScale . "\n";
     }
     
     $entries .= "\n";
