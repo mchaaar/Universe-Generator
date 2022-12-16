@@ -1,7 +1,20 @@
+[Ideal amount between 1 & 100 but there is no limit]
 SYSTEMS_PER_UNIVERSE = 1
+
+[Ideal amount between 1 & 20 but there is no limit]
 MIN_PLANETS_PER_SYSTEM = 1
-MAX_PLANETS_PER_SYSTEM = 12
+
+[Ideal amount between 1 & 40 but there is no limit]
+MAX_PLANETS_PER_SYSTEM = 14
+
+[Ideal amount is 1 but there is no limit (1 = 1 Billion)]
 MIN_INHABITANTS_PER_PLANETS = 1
+
+[Ideal amount is 100 but there is no limit (1 = 1 Billion)]
 MAX_INHABITANTS_PER_PLANETS = 100
-DELETE_OLD_GENERATION = true
-SELECTED_OUTPUT = txt
+
+[0 = no | 1 = yes (Deletes the last batch of generated content)]
+DELETE_OLD_GENERATION = 1
+
+[1 = txt]
+SELECTED_OUTPUT = 1

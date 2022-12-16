@@ -11,7 +11,7 @@ require('Objects/System.php');
 
 $entries = '';
 
-function GenerateNewSystem($maxPlanetsPerSystem, $fileIndex, string $outputType){
+function GenerateNewSystem($maxPlanetsPerSystem, $fileIndex, $outputType, $minInhabitants, $maxInhabitants){
 
     global $entries;
 
@@ -19,7 +19,7 @@ function GenerateNewSystem($maxPlanetsPerSystem, $fileIndex, string $outputType)
     $planetOccurences = array();
     $firstIteration = rand(1, $maxPlanetsPerSystem);
     
-    if ($outputType == 'txt'){
+    if ($outputType == 1){
         $fileName = $fileIndex . '-' . trim($system->name);
         fopen('Output/' . $fileName . '.txt', 'w');
     }
@@ -28,7 +28,7 @@ function GenerateNewSystem($maxPlanetsPerSystem, $fileIndex, string $outputType)
 
     for ($i = $firstIteration; $i <= $maxPlanetsPerSystem; $i++){
 
-        $planet = GenerateNewPlanet();
+        $planet = GenerateNewPlanet($minInhabitants, $maxInhabitants);
         $occured = false;
         $valid = false;
 
@@ -109,8 +109,6 @@ function OutputPlanet(Planet $planet, $filePath, $system){
     if ($planet->inhabited){
         $entries .= '   -Inhabitants Amount: ';
         $entries .= $planet->inhabitantsAmount . "\n";
-        $entries .= '   -Diplomatic Scale: ';
-        $entries .= $planet->diplomaticScale . "\n";
     }
     
     $entries .= "\n";

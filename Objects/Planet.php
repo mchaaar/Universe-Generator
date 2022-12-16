@@ -6,9 +6,8 @@ class Planet {
     public int $size;
     public bool $inhabited;
     public int $inhabitantsAmount;
-    public int $diplomaticScale;
     
-    public function __construct(string $name, int $size, bool $inhabited, int $inhabitantsAmount, int $diplomaticScale) {
+    public function __construct(string $name, int $size, bool $inhabited, int $inhabitantsAmount) {
         $this->name = $name;
         $this->size = $size;
         $this->inhabited = $inhabited;

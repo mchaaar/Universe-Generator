@@ -5,15 +5,14 @@ require('Objects/Settings.php');
 function LoadSettings(){
 
     $settingsFile = "Settings/GeneralSettings.txt";
-    $settings = file($settingsFile);
-    $cleanSettings = [];
+    $allSettings = file($settingsFile);
 
-    for ($i = 0; $i < count($settings); $i++){
-        $cleanSetting = explode('=', $settings[$i]);
-        array_push($cleanSettings, trim($cleanSetting[1]));
+    $settings = [];
+
+    for ($i = 1; $i < count($allSettings); $i += 3){
+        $cleanSetting = explode('=', $allSettings[$i]);
+        array_push($settings, intval($cleanSetting[1]));
     }
-
-    $finalSettings = new Settings();
     
-    return $finalSettings;
+    return $settings;
 }
