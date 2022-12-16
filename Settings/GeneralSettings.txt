@@ -1,7 +1,20 @@
-int SYSTEMS_PER_UNIVERSE = 1
-int MIN_PLANETS_PER_SYSTEM = 1
-int MAX_PLANETS_PER_SYSTEM = 12
-int MIN_INHABITANTS_PER_PLANETS = 1
-int MAX_INHABITANTS_PER_PLANETS = 100
-bool DELETE_OLD_GENERATION = 1
-string SELECTED_OUTPUT = 1
+[Ideal amount between 1 & 100 but there is no limit]
+SYSTEMS_PER_UNIVERSE = 1
+
+[Ideal amount between 1 & 20 but there is no limit]
+MIN_PLANETS_PER_SYSTEM = 1
+
+[Ideal amount between 1 & 40 but there is no limit]
+MAX_PLANETS_PER_SYSTEM = 14
+
+[Ideal amount is 1 but there is no limit (1 = 1 Billion)]
+MIN_INHABITANTS_PER_PLANETS = 1
+
+[Ideal amount is 100 but there is no limit (1 = 1 Billion)]
+MAX_INHABITANTS_PER_PLANETS = 100
+
+[0 = no | 1 = yes]
+DELETE_OLD_GENERATION = 1
+
+[1 = txt]
+SELECTED_OUTPUT = 1

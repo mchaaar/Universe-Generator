@@ -4,17 +4,16 @@ require('Generators/SystemGenerator.php');
 
 $systems = [];
 
-function GenerateNewUniverse(int $amountOfSystems, int $maxPlanetsPerSystem, string $outputType, bool $deleteOldFiles = true){
+function GenerateNewUniverse($settings){
 
     global $systems;
 
-    if ($deleteOldFiles){
+    if ($settings[5]){
         DeleteOldFiles();
     }
 
-    for ($i = 1; $i <= $amountOfSystems; $i++){
-
-        $system = GenerateNewSystem($maxPlanetsPerSystem, $i, $outputType);
+    for ($i = 1; $i <= $settings[0]; $i++){
+        $system = GenerateNewSystem($settings[2], $i, $settings[6]);
         array_push($systems, $system);
         var_dump($system);
     }
