@@ -19,7 +19,8 @@ function GenerateNewSystem($settings, $fileIndex){
 
     $system = new System(GenerateNewName('system'));
     $planetOccurences = array();
-    $firstIteration = rand(1, $settings[2]);
+
+    $planetAmount = rand($settings[1], $settings[2]);
     
     array_push($system->gates, GenerateNewGate($system->name));
     
@@ -28,9 +29,9 @@ function GenerateNewSystem($settings, $fileIndex){
         fopen('Output/' . $fileName . '.txt', 'w');
     }
     
-    $entries = 'System Name: ' . $system->name . "\n" . 'Amount of Planets: ' . $settings[2] + 1 - $firstIteration . "\n\n";
+    $entries = 'System Name: ' . $system->name . "\n" . 'Amount of Planets: ' . $planetAmount . "\n\n";
 
-    for ($i = $firstIteration; $i <= $settings[2]; $i++){
+    for ($i = 1; $i <= $planetAmount; $i++){
 
         $planet = GenerateNewPlanet($settings[3], $settings[4], $settings[12], $settings[13], $settings[14], $settings[15], $settings[9]);
         $occured = false;
@@ -50,14 +51,13 @@ function GenerateNewSystem($settings, $fileIndex){
             }
         }
 
-        if ($i == $firstIteration){
+        if ($i == 1){
             $planetOccurences[$planet->name] = 1;
             $valid = true;
             $occured = true;
         }
 
         FinalChecks($system, $planet, $fileName, $occured, $valid, $i);
-
     }
 
     file_put_contents('Output/' . $fileName . '.txt', $entries);
