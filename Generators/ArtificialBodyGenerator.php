@@ -8,7 +8,6 @@ function GenerateNewArtificialBody(){
 
     $artificialBody = new ArtificialBody(
         trim(GenerateNewName('artificialBody')),
-        rand(1,10),
     );
 
     $artificialBody->materials = GenerateNewMaterial('artificial');

@@ -8,10 +8,10 @@ function GenerateNewAsteroid(string $systemName, int $i){
 
     $asteroid = new Asteroid(
         strtoupper(substr($systemName, 0, 3)) . '-' . CreateFiveLetters(),
-        rand(1,10),
     );
 
     $asteroid->materials = GenerateNewMaterial('asteroid');
+    
     return $asteroid;
 }
 

@@ -13,26 +13,27 @@ require('Objects/System.php');
 
 $entries = '';
 
-function GenerateNewSystem($maxPlanetsPerSystem, $fileIndex, $outputType, $minInhabitants, $maxInhabitants){
+function GenerateNewSystem($settings, $fileIndex){
 
     global $entries;
 
     $system = new System(GenerateNewName('system'));
     $planetOccurences = array();
-    $firstIteration = rand(1, $maxPlanetsPerSystem);
+
+    $planetAmount = rand($settings[1], $settings[2]);
     
     array_push($system->gates, GenerateNewGate($system->name));
     
-    if ($outputType == 1){
+    if ($settings[6] == 1){
         $fileName = $fileIndex . '-' . trim($system->name);
         fopen('Output/' . $fileName . '.txt', 'w');
     }
     
-    $entries = 'System Name: ' . $system->name . "\n" . 'Amount of Planets: ' . $maxPlanetsPerSystem+1 - $firstIteration . "\n\n";
+    $entries = 'System Name: ' . $system->name . "\n" . 'Amount of Planets: ' . $planetAmount . "\n\n";
 
-    for ($i = $firstIteration; $i <= $maxPlanetsPerSystem; $i++){
+    for ($i = 1; $i <= $planetAmount; $i++){
 
-        $planet = GenerateNewPlanet($minInhabitants, $maxInhabitants);
+        $planet = GenerateNewPlanet($settings[3], $settings[4], $settings[12], $settings[13], $settings[14], $settings[15], $settings[9]);
         $occured = false;
         $valid = false;
 
@@ -50,21 +51,20 @@ function GenerateNewSystem($maxPlanetsPerSystem, $fileIndex, $outputType, $minIn
             }
         }
 
-        if ($i == $firstIteration){
+        if ($i == 1){
             $planetOccurences[$planet->name] = 1;
             $valid = true;
             $occured = true;
         }
 
         FinalChecks($system, $planet, $fileName, $occured, $valid, $i);
-
     }
 
     file_put_contents('Output/' . $fileName . '.txt', $entries);
 
-    AsteroidGeneration($system);
-    StarGeneration($system);
-    ArtificialBodyGeneration($system);
+    AsteroidGeneration($system, $settings[7]);
+    StarGeneration($system, $settings[10], $settings[11]);
+    ArtificialBodyGeneration($system, $settings[8]);
     
     return $system;
 }
@@ -86,25 +86,37 @@ function FinalChecks(System $system, Planet $planet, string $fileName, bool $occ
     }
 }
 
-function AsteroidGeneration(System $system){
+function AsteroidGeneration(System $system, $maxAsteroidAmount){
 
-    for ($i = 0; $i < 10; $i++){
+    $firstRound = rand(1, $maxAsteroidAmount);
+
+    for ($i = 1; $i <= $firstRound; $i++){
         $asteroid = GenerateNewAsteroid($system->name, $i);
         array_push($system->asteroids, $asteroid);
     }
 }
 
-function ArtificialBodyGeneration($system){
+function ArtificialBodyGeneration($system, $maxArtificialBodyAmount){
 
-    for ($i = 0; $i < 10; $i++){
+    $firstRound = rand(1, $maxArtificialBodyAmount);
+
+    for ($i = 1; $i <= $firstRound; $i++){
         $artificialBody = GenerateNewArtificialBody();
         array_push($system->artificialBodies, $artificialBody);
     }
 }
 
-function StarGeneration($system){
+function StarGeneration($system, $maxStartsPerSystem, $chanceOfAdditionalStar){
 
-    for ($i = 0; $i < 10; $i++){
+    $amountOfStars = 1;
+
+    for ($i = 1; $i <= $maxStartsPerSystem; $i++){
+        if (rand(1, 100) >= (100 - $chanceOfAdditionalStar)){
+            $amountOfStars++;
+        }
+    }
+
+    for ($i = 1; $i <= $amountOfStars; $i++){
         $star = GenerateNewStar($system->name);
         array_push($system->stars, $star);
     }
