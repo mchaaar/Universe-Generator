@@ -28,5 +28,9 @@ function GenerateNewName(string $type){
             $artificialStarNamesFile = "Lists/StarNames.txt";
             $artificialStarNames = file($artificialStarNamesFile);
             return $artificialStarNames[rand(0, count($artificialStarNames) -1)];
+        case 'naturalBody':
+            $naturalBodyNamesFile = "Lists/NaturalBodyNames.txt";
+            $naturalBodyNames = file($naturalBodyNamesFile);
+            return $naturalBodyNames[rand(0, count($naturalBodyNames) -1)];
     }
 }

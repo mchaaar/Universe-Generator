@@ -104,7 +104,6 @@ function StarGeneration($system){
     for ($i = 0; $i < 10; $i++){
         $star = GenerateNewStar($system->name);
         array_push($system->stars, $star);
-        var_dump($system->stars);
     }
 }
 

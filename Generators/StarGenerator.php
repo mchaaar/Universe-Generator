@@ -13,7 +13,6 @@ function GenerateNewStar(string $systemName) {
 }
 
 function StarType() {
-    
     $type = [
         "Red Dwarf",
         "Black Dwarf",
