@@ -18,3 +18,24 @@ DELETE_OLD_GENERATION = 1
 
 [1 = txt]
 SELECTED_OUTPUT = 1
+
+[Ideal amount between val & val but there is no limit]
+MIN_ASTEROIDS_PER_SYSTEM = 1
+
+[Ideal amount between val & val but there is no limit]
+MAX_ASTEROIDS_PER_SYSTEM = 25
+
+[Ideal amount between val & val but there is no limit]
+MIN_ARTIFICIALBODIES_PER_SYSTEM = 1
+
+[Ideal amount between val & val but there is no limit]
+MAX_ARTIFICIALBODIES_PER_SYSTEM = 25
+
+[Ideal amount between val & val but there is no limit]
+MIN_STARS_PER_SYSTEM = 1
+
+[Ideal amount between val & val but there is no limit]
+MAX_STARS_PER_SYSTEM = 25
+
+[Chance of Naturalbody per Planet, between 1 % 100 in Percent]
+CHANCE_OF_NATURALBODY = 20
