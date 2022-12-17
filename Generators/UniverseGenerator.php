@@ -15,7 +15,7 @@ function GenerateNewUniverse($settings){
     for ($i = 1; $i <= $settings[0]; $i++){
         $system = GenerateNewSystem($settings[2], $i, $settings[6], $settings[3], $settings[4]);
         array_push($systems, $system);
-        var_dump($system);
+        //var_dump($system);
     }
 }
 
