@@ -5,8 +5,10 @@ use function PHPSTORM_META\type;
 include_once('Generators/NameGenerator.php');
 require('Generators/ArtificialBodyGenerator.php');
 require('Generators/AsteroidGenerator.php');
+require('Generators/StarGenerator.php');
 require('Generators/PlanetGenerator.php');
 require('Generators/RomanGenerator.php');
+require('Generators/GateGenerator.php');
 require('Objects/System.php');
 
 $entries = '';
@@ -18,6 +20,8 @@ function GenerateNewSystem($maxPlanetsPerSystem, $fileIndex, $outputType, $minIn
     $system = new System(GenerateNewName('system'));
     $planetOccurences = array();
     $firstIteration = rand(1, $maxPlanetsPerSystem);
+    
+    array_push($system->gates, GenerateNewGate($system->name));
     
     if ($outputType == 1){
         $fileName = $fileIndex . '-' . trim($system->name);
@@ -59,8 +63,9 @@ function GenerateNewSystem($maxPlanetsPerSystem, $fileIndex, $outputType, $minIn
     file_put_contents('Output/' . $fileName . '.txt', $entries);
 
     AsteroidGeneration($system);
+    StarGeneration($system);
     ArtificialBodyGeneration($system);
-
+    
     return $system;
 }
 
@@ -94,6 +99,14 @@ function ArtificialBodyGeneration($system){
     for ($i = 0; $i < 10; $i++){
         $artificialBody = GenerateNewArtificialBody();
         array_push($system->artificialBodies, $artificialBody);
+    }
+}
+
+function StarGeneration($system){
+
+    for ($i = 0; $i < 10; $i++){
+        $star = GenerateNewStar($system->name);
+        array_push($system->stars, $star);
     }
 }
 
