@@ -33,3 +33,15 @@ MAX_STARS_PER_SYSTEM = 3
 
 [Chance of another star spawning per System, between 1 and 100 in Percent but should stay low]
 CHANCE_OF_ADDITIONAL_STAR = 5
+
+[Ideal amount is 1 but there is no limit]
+MIN_PLANET_SIZE = 1
+
+[Ideal amount is 10 but there is no limit]
+MAX_PLANET_SIZE = 10
+
+[Chance of the planet being inhabited between 1 and 100 in Percent]
+CHANCE_OF_PLANET_INHABITED = 10
+
+[Ideal amount between 1 and 3 but there is no limit]
+MAX_NATURALBODIES_PER_PLANET = 3

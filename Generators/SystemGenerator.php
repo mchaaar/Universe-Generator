@@ -32,7 +32,7 @@ function GenerateNewSystem($settings, $fileIndex){
 
     for ($i = $firstIteration; $i <= $settings[2]; $i++){
 
-        $planet = GenerateNewPlanet($settings[3], $settings[4]);
+        $planet = GenerateNewPlanet($settings[3], $settings[4], $settings[12], $settings[13], $settings[14], $settings[15], $settings[9]);
         $occured = false;
         $valid = false;
 
