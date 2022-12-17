@@ -5,13 +5,13 @@ SYSTEMS_PER_UNIVERSE = 1
 MIN_PLANETS_PER_SYSTEM = 1
 
 [Ideal amount between 1 & 40 but there is no limit]
-MAX_PLANETS_PER_SYSTEM = 14
+MAX_PLANETS_PER_SYSTEM = 10
 
 [Ideal amount is 1 but there is no limit (1 = 1 Billion)]
 MIN_INHABITANTS_PER_PLANETS = 1
 
 [Ideal amount is 100 but there is no limit (1 = 1 Billion)]
-MAX_INHABITANTS_PER_PLANETS = 100
+MAX_INHABITANTS_PER_PLANETS = 10
 
 [1 = yes | any over number = no (Deletes the last batch of generated content)]
 DELETE_OLD_GENERATION = 1
@@ -20,22 +20,28 @@ DELETE_OLD_GENERATION = 1
 SELECTED_OUTPUT = 1
 
 [Ideal amount between val & val but there is no limit]
-MIN_ASTEROIDS_PER_SYSTEM = 1
-
-[Ideal amount between val & val but there is no limit]
 MAX_ASTEROIDS_PER_SYSTEM = 25
-
-[Ideal amount between val & val but there is no limit]
-MIN_ARTIFICIALBODIES_PER_SYSTEM = 1
 
 [Ideal amount between val & val but there is no limit]
 MAX_ARTIFICIALBODIES_PER_SYSTEM = 25
 
-[Ideal amount between val & val but there is no limit]
-MIN_STARS_PER_SYSTEM = 1
-
-[Ideal amount between val & val but there is no limit]
-MAX_STARS_PER_SYSTEM = 25
-
-[Chance of Naturalbody per Planet, between 1 % 100 in Percent]
+[Chance of Naturalbody per Planet, between 1 and 100 in Percent]
 CHANCE_OF_NATURALBODY = 20
+
+[Ideal amount between val & val but there is no limit]
+MAX_STARS_PER_SYSTEM = 3
+
+[Chance of another star spawning per System, between 1 and 100 in Percent but should stay low]
+CHANCE_OF_ADDITIONAL_STAR = 5
+
+[Ideal amount is 1 but there is no limit]
+MIN_PLANET_SIZE = 1
+
+[Ideal amount is 10 but there is no limit]
+MAX_PLANET_SIZE = 10
+
+[Chance of the planet being inhabited between 1 and 100 in Percent]
+CHANCE_OF_PLANET_INHABITED = 10
+
+[Ideal amount between 1 and 3 but there is no limit]
+MAX_NATURALBODIES_PER_PLANET = 3
