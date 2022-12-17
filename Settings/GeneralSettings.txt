@@ -20,22 +20,16 @@ DELETE_OLD_GENERATION = 1
 SELECTED_OUTPUT = 1
 
 [Ideal amount between val & val but there is no limit]
-MIN_ASTEROIDS_PER_SYSTEM = 1
-
-[Ideal amount between val & val but there is no limit]
 MAX_ASTEROIDS_PER_SYSTEM = 25
-
-[Ideal amount between val & val but there is no limit]
-MIN_ARTIFICIALBODIES_PER_SYSTEM = 1
 
 [Ideal amount between val & val but there is no limit]
 MAX_ARTIFICIALBODIES_PER_SYSTEM = 25
 
-[Ideal amount between val & val but there is no limit]
-MIN_STARS_PER_SYSTEM = 1
-
-[Ideal amount between val & val but there is no limit]
-MAX_STARS_PER_SYSTEM = 25
-
-[Chance of Naturalbody per Planet, between 1 % 100 in Percent]
+[Chance of Naturalbody per Planet, between 1 and 100 in Percent]
 CHANCE_OF_NATURALBODY = 20
+
+[Ideal amount between val & val but there is no limit]
+MAX_STARS_PER_SYSTEM = 3
+
+[Chance of another star spawning per System, between 1 and 100 in Percent but should stay low]
+CHANCE_OF_ADDITIONAL_STAR = 5
