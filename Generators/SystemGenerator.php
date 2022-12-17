@@ -5,6 +5,7 @@ use function PHPSTORM_META\type;
 include_once('Generators/NameGenerator.php');
 require('Generators/ArtificialBodyGenerator.php');
 require('Generators/AsteroidGenerator.php');
+require('Generators/StarGenerator.php');
 require('Generators/PlanetGenerator.php');
 require('Generators/RomanGenerator.php');
 require('Objects/System.php');
@@ -59,6 +60,7 @@ function GenerateNewSystem($maxPlanetsPerSystem, $fileIndex, $outputType, $minIn
     file_put_contents('Output/' . $fileName . '.txt', $entries);
 
     AsteroidGeneration($system);
+    StarGeneration($system);
     ArtificialBodyGeneration($system);
 
     return $system;
@@ -94,6 +96,15 @@ function ArtificialBodyGeneration($system){
     for ($i = 0; $i < 10; $i++){
         $artificialBody = GenerateNewArtificialBody();
         array_push($system->artificialBodies, $artificialBody);
+    }
+}
+
+function StarGeneration($system){
+
+    for ($i = 0; $i < 10; $i++){
+        $star = GenerateNewStar($system->name);
+        array_push($system->stars, $star);
+        var_dump($system->stars);
     }
 }
 
