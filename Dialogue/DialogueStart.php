@@ -3,8 +3,6 @@
 require('Generators/UniverseGenerator.php');
 require_once('Settings/SettingsLoader.php');
 
-//parse_str(implode('&', array_slice($argv, 1)), $_GET);
-
 function StartDialogue(){
     
     printf (
@@ -31,8 +29,6 @@ function StartDialogue(){
         printf("\n" . "Error : You must type yes or no." . "\n");
         StartDialogue();
     }
-
-    //GenerateNewUniverse($settings);
 }
 
 function AreYouSure(){
@@ -60,11 +56,10 @@ function AreYouSure(){
         printf("\n" . "Error : You must type yes or no." . "\n");
         AreYouSure();
     }
-
 }
 
 function CreateNewSettings(){
 
-    
-
+    $newSettings = [];
+    // Add all possible settings in Settings/GeneralSettings
 }
