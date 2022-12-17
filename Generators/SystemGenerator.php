@@ -7,6 +7,7 @@ require('Generators/ArtificialBodyGenerator.php');
 require('Generators/AsteroidGenerator.php');
 require('Generators/PlanetGenerator.php');
 require('Generators/RomanGenerator.php');
+require('Generators/GateGenerator.php');
 require('Objects/System.php');
 
 $entries = '';
@@ -18,6 +19,8 @@ function GenerateNewSystem($maxPlanetsPerSystem, $fileIndex, $outputType, $minIn
     $system = new System(GenerateNewName('system'));
     $planetOccurences = array();
     $firstIteration = rand(1, $maxPlanetsPerSystem);
+    
+    array_push($system->gates, GenerateNewGate($system->name));
     
     if ($outputType == 1){
         $fileName = $fileIndex . '-' . trim($system->name);
@@ -60,7 +63,7 @@ function GenerateNewSystem($maxPlanetsPerSystem, $fileIndex, $outputType, $minIn
 
     AsteroidGeneration($system);
     ArtificialBodyGeneration($system);
-
+    
     return $system;
 }
 
