@@ -78,7 +78,7 @@ function FinalChecks(System $system, Planet $planet, string $fileName, bool $occ
 
     if ($valid){
         array_push($system->planets, $planet);
-        OutputPlanet($planet, 'Output/' . $fileName . '.txt', $system);
+        OutputPlanets($planet, 'Output/' . $fileName . '.txt', $system);
     } 
     
     else {
@@ -122,7 +122,7 @@ function StarGeneration($system, $maxStartsPerSystem, $chanceOfAdditionalStar){
     }
 }
 
-function OutputPlanet(Planet $planet, $filePath, $system){
+function OutputPlanets(Planet $planet, $filePath, $system){
 
     global $entries;
     $entries .= $planet->name . "\n";
