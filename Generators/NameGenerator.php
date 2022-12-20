@@ -19,7 +19,7 @@ function GenerateNewName(string $type){
         case 'system':
             $systemNamesFile = "Lists/SystemNames.txt";
             $systemNames = file($systemNamesFile);
-            return $systemNames[rand(0, count($systemNames) - 1)];
+            return trim($systemNames[rand(0, count($systemNames) - 1)]);
         case 'artificialBody':
             $artificialBodyNamesFile = "Lists/ArtificialBodyNames.txt";
             $artificialBodyNames = file($artificialBodyNamesFile);

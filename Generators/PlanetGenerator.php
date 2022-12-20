@@ -6,7 +6,7 @@ include_once('Generators/NaturalBodyGenerator.php');
 
 
 
-function GenerateNewPlanet($minInhabitants, $maxInhabitants, $minPlanetSize, $maxPlanetSize, $inhabitedChance, $maxNaturalBodies, $naturalBodyChance){
+function GenerateNewPlanet($systemName, $minInhabitants, $maxInhabitants, $minPlanetSize, $maxPlanetSize, $inhabitedChance, $maxNaturalBodies, $naturalBodyChance){
 
     $planet = new Planet(
         trim(GenerateNewName('planet')),
@@ -23,12 +23,12 @@ function GenerateNewPlanet($minInhabitants, $maxInhabitants, $minPlanetSize, $ma
         }
     }
     $text = '';
-    OutputPlanet($planet, $text);
+    OutputPlanet($planet, $text, $systemName);
     return $planet;
 }
 
-function OutputPlanet($planet, $text){
-    fopen('Output/' . 'PLANET' . $planet->name . '.txt', 'w');
+function OutputPlanet($planet, $text, $systemName){
+    fopen('Output/' . $systemName . "/" . "-Planets/" . $planet->name . '.txt', 'w');
     $text .= 'Planet: ' . $planet->name . "\n\n";
     $text .= '  -Size: ' . $planet->size . "\n";
     $text .= '  -Inhabited: ';
@@ -49,5 +49,5 @@ function OutputPlanet($planet, $text){
 
     } 
 
-    file_put_contents('Output/' . 'PLANET' . $planet->name . '.txt', $text);
+    file_put_contents('Output/' . $systemName . "/" . "-Planets/" . $planet->name . '.txt', $text);
 }
