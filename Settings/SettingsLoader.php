@@ -1,7 +1,5 @@
 <?php
 
-require('../Objects/Settings.php');
-
 function LoadSettings(){
 
     $settingsFile = "../Settings/GeneralSettings.txt";

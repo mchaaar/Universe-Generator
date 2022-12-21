@@ -4,8 +4,6 @@ require('../Objects/Planet.php');
 include_once('../Generators/NameGenerator.php');
 include_once('../Generators/NaturalBodyGenerator.php');
 
-
-
 function GenerateNewPlanet($systemName, $minInhabitants, $maxInhabitants, $minPlanetSize, $maxPlanetSize, $inhabitedChance, $maxNaturalBodies, $naturalBodyChance){
 
     $planet = new Planet(
