@@ -1,7 +1,7 @@
 <?php
 
-require('Objects/Star.php');
-include_once('Generators/NameGenerator.php');
+require('../Objects/Star.php');
+include_once('../Generators/NameGenerator.php');
 
 function GenerateNewStar(string $systemName) {
     $star = new Star(

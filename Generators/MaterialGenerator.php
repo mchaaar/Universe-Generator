@@ -2,7 +2,7 @@
 
 function GenerateNewMaterial(string $type){
 
-    $materialFile = "Lists/Materials.txt";
+    $materialFile = "../Lists/Materials.txt";
     $materials = file($materialFile);
 
     $chosenMaterials = [];

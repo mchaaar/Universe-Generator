@@ -1,6 +1,6 @@
 <?php
 
-require('Generators/SystemGenerator.php');
+require('../Generators/SystemGenerator.php');
 
 $systems = [];
 
@@ -19,7 +19,7 @@ function GenerateNewUniverse($settings){
 }
 
 function DeleteOldFiles(){
-    $things = glob('Output'.'/*');
+    $things = glob('../Output'.'/*');
    
     foreach ($things as $thing) {
         if (is_dir($thing)) {

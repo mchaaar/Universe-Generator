@@ -1,8 +1,8 @@
 <?php
 
-include_once('Generators/NameGenerator.php');
-include_once('Generators/MaterialGenerator.php');
-require('Objects/naturalBody.php');
+include_once('../Generators/NameGenerator.php');
+include_once('../Generators/MaterialGenerator.php');
+require('../Objects/naturalBody.php');
 
 function GenerateNewNaturalBody(){
 

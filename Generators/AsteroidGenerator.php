@@ -1,8 +1,8 @@
 <?php
 
-include_once('Generators/NameGenerator.php');
-include_once('Generators/MaterialGenerator.php');
-require('Objects/Asteroid.php');
+include_once('../Generators/NameGenerator.php');
+include_once('../Generators/MaterialGenerator.php');
+require('../Objects/Asteroid.php');
 
 function GenerateNewAsteroid(string $systemName, int $i){
 
