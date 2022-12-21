@@ -2,8 +2,6 @@
 
 function GenerateNewName(string $type){
 
-    global $usedNames;
-
     switch ($type){
         case 'human':
             $firstNamesFile = "../Lists/FirstNames.txt";

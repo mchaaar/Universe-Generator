@@ -17,9 +17,8 @@ function GenerateNewSystem($settings, $fileIndex){
 
     global $entries;
 
-    $system = new System(GenerateNewName('system'));
+    $system = new System(GenerateNewName('system') . '-' . CreateThreeLetters());
     $planetOccurences = array();
-
     $planetAmount = rand($settings[1], $settings[2]);
     
     array_push($system->gates, GenerateNewGate($system->name));
@@ -32,8 +31,6 @@ function GenerateNewSystem($settings, $fileIndex){
         mkdir($path . "/-Planets");
     }
     
-    $entries = 'System Name: ' . $system->name . "\n" . 'Amount of Planets: ' . $planetAmount . "\n\n";
-
     for ($i = 1; $i <= $planetAmount; $i++){
 
         $planet = GenerateNewPlanet($system->name, $settings[3], $settings[4], $settings[12], $settings[13], $settings[14], $settings[15], $settings[9]);
@@ -62,13 +59,11 @@ function GenerateNewSystem($settings, $fileIndex){
 
         FinalChecks($system, $planet, $fileName, $occured, $valid, $i);
     }
-
-    file_put_contents($path . "/" . $system->name . '.txt', $entries);
-
     AsteroidGeneration($system, $settings[7]);
     StarGeneration($system, $settings[10], $settings[11]);
     ArtificialBodyGeneration($system, $settings[8]);
-    
+    generateText($system, $planetAmount, $settings[16]);
+    file_put_contents($path . "/" . $system->name . '.txt', $entries);
     return $system;
 }
 
@@ -81,7 +76,6 @@ function FinalChecks(System $system, Planet $planet, string $fileName, bool $occ
 
     if ($valid){
         array_push($system->planets, $planet);
-        OutputPlanets($planet, '../Output/' . $fileName . '.txt', $system);
     } 
     
     else {
@@ -125,19 +119,43 @@ function StarGeneration($system, $maxStartsPerSystem, $chanceOfAdditionalStar){
     }
 }
 
-function OutputPlanets(Planet $planet, $filePath, $system){
+function generateText($system, $planetAmount, $asteroidOutput){
 
     global $entries;
-    $entries .= $planet->name . "\n";
-    $entries .= '   -Size: ';
-    $entries .= $planet->size . "\n";
-    $entries .= '   -Inhabited: ';
-    $entries .= $planet->inhabited ? 'yes' . "\n" : 'no' . "\n";
+    $entries = 'System Name: ' . $system->name . "\n\n" . 'Amount of Planets: ' . $planetAmount . "\n\n";
+    $entries .= "Amount of Asteroids: " . count($system->asteroids) . "\n";
 
-    if ($planet->inhabited){
-        $entries .= '   -Inhabitants Amount: ';
-        $entries .= $planet->inhabitantsAmount . "\n";
+    if ($asteroidOutput == 1 && !empty($system->asteroids)) {
+        for ($i = 0; $i < count($system->asteroids); $i++) {
+            $entries .= '   Asteroid ' .$i+1 . ": " . trim($system->asteroids[$i]->name) . "\n";
+        }
     }
-    
     $entries .= "\n";
+    $entries .= "Amount of Stars: " . count($system->stars) . "\n";
+    if (!empty($system->stars)) {
+        for ($i = 0; $i < count($system->stars); $i++) {
+            $entries .= '   Star ' .$i+1 . ": " . trim($system->stars[$i]->name) . "\n";
+        }
+    }
+    $entries .= "\n";
+    $entries .= "Amount of Artificial Bodies: " . count($system->artificialBodies) . "\n";
+    if (!empty($system->artificialBodies)) {
+        for ($i = 0; $i < count($system->artificialBodies); $i++) {
+            $entries .= '   A-Body ' .$i+1 . ": " . trim($system->artificialBodies[$i]->name) . "\n";
+        }
+    }
+    $entries .= "\n";
+    $entries .= "Amount of Gates: " . count($system->gates) . "\n";
+    $entries .= '   Gate: ' . trim($system->gates[0]->name);
+}
+
+function CreateThreeLetters(){
+
+    $name = '';
+
+    for ($i = 1; $i < 4; $i++){
+        $name .= chr(rand(65, 90));
+    }
+
+    return trim($name);
 }
