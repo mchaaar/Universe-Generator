@@ -19,16 +19,16 @@ DELETE_OLD_GENERATION = 1
 [1 = txt]
 SELECTED_OUTPUT = 1
 
-[Ideal amount between val & val but there is no limit]
-MAX_ASTEROIDS_PER_SYSTEM = 25
+[Ideal amount between 1 & 1000 but there is no limit]
+MAX_ASTEROIDS_PER_SYSTEM = 60
 
-[Ideal amount between val & val but there is no limit]
-MAX_ARTIFICIALBODIES_PER_SYSTEM = 25
+[Ideal amount between 1 & 15 but there is no limit]
+MAX_ARTIFICIALBODIES_PER_SYSTEM = 10
 
 [Chance of Naturalbody per Planet, between 1 and 100 in Percent]
 CHANCE_OF_NATURALBODY = 20
 
-[Ideal amount between val & val but there is no limit]
+[Ideal amount between 1 & 3 but there is no limit]
 MAX_STARS_PER_SYSTEM = 3
 
 [Chance of another star spawning per System, between 1 and 100 in Percent but should stay low]
@@ -45,3 +45,6 @@ CHANCE_OF_PLANET_INHABITED = 10
 
 [Ideal amount between 1 and 3 but there is no limit]
 MAX_NATURALBODIES_PER_PLANET = 3
+
+[1 = yes | any over number = no (Outputs Asteroids)]
+OUTPUT_ASTEROIDS = 0
