@@ -1,5 +1,5 @@
 <?php
 
-require('Dialogue/DialogueStart.php');
+require('../Dialogue/DialogueStart.php');
 
 StartDialogue();
