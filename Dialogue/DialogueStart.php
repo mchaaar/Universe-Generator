@@ -7,59 +7,23 @@ function StartDialogue(){
     
     printf (
         "\n" .
+        "\n" .
         "Welcome to the Universe Generator !" .
         "\n" .
-        "Do you want to generate using the settings located in 'Settings/GeneralSettings' ?" .
+        "You can modify the generation settings in 'Settings/GeneralSettings.txt'" .
         "\n" .
-        "( yes / no )" . "\n"
+        "Press any key to start generating" .
+        "\n" .
+        "\n"
     );
 
-    $generateWithSettings = readline();
-
-    if ($generateWithSettings == "yes"){
-        $settings = LoadSettings();
-        GenerateNewUniverse($settings);
-    }
-
-    elseif ($generateWithSettings == "no"){
-        AreYouSure();
-    }
-
-    else {
-        printf("\n" . "Error : You must type yes or no." . "\n");
-        StartDialogue();
-    }
-}
-
-function AreYouSure(){
+    readline();
+    GenerateNewUniverse(LoadSettings());
 
     printf (
-        "\n" . 
-        "A few questions regarding the generation will be asked." .
+        "Generation is done !" .
         "\n" .
-        "Are you sure you want to continue ?" .
-        "\n" .
-        "( yes to continue / no to go back )" . "\n"
+        "You can find your generation output in 'Output/'" .
+        "\n"
     );
-
-    $areYouSure = readline();
-
-    if ($areYouSure == "yes"){
-        CreateNewSettings();
-    }
-
-    elseif ($areYouSure == "no"){
-        StartDialogue();
-    }
-
-    else {
-        printf("\n" . "Error : You must type yes or no." . "\n");
-        AreYouSure();
-    }
-}
-
-function CreateNewSettings(){
-
-    $newSettings = [];
-    // Add all possible settings in Settings/GeneralSettings
 }
