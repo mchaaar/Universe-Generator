@@ -15,9 +15,9 @@
   
 ### Additional commands  
   
-- You can modify the generation settings by going in the `Universe-Generator/Settings/GeneralSettings.txt` file.  
+- You can modify the generation settings by going in `Universe-Generator/Settings/GeneralSettings.txt`  
   
-- If you need to reset the general settings, you can go in the `Universe-Generator/Scripts/` folder and type in your terminal :  
+- If you need to reset the general settings, go to `Universe-Generator/Scripts/` and type in your terminal :  
 ```
 php reset.php
 ```  
