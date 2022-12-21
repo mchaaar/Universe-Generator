@@ -1,6 +1,6 @@
 <?php
 
-require('Objects/Gate.php');
+require('../Objects/Gate.php');
 
 function GenerateNewGate(string $systemName){
 

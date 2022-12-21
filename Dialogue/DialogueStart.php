@@ -1,7 +1,7 @@
 <?php
 
-require('Generators/UniverseGenerator.php');
-require_once('Settings/SettingsLoader.php');
+require('../Generators/UniverseGenerator.php');
+require_once('../Settings/SettingsLoader.php');
 
 function StartDialogue(){
     

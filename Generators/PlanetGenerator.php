@@ -1,8 +1,8 @@
 <?php
 
-require('Objects/Planet.php');
-include_once('Generators/NameGenerator.php');
-include_once('Generators/NaturalBodyGenerator.php');
+require('../Objects/Planet.php');
+include_once('../Generators/NameGenerator.php');
+include_once('../Generators/NaturalBodyGenerator.php');
 
 
 
@@ -28,7 +28,7 @@ function GenerateNewPlanet($systemName, $minInhabitants, $maxInhabitants, $minPl
 }
 
 function OutputPlanet($planet, $text, $systemName){
-    fopen('Output/' . $systemName . "/" . "-Planets/" . $planet->name . '.txt', 'w');
+    fopen('../Output/' . $systemName . "/" . "-Planets/" . $planet->name . '.txt', 'w');
     $text .= 'Planet: ' . $planet->name . "\n\n";
     $text .= '  -Size: ' . $planet->size . "\n";
     $text .= '  -Inhabited: ';
@@ -49,5 +49,5 @@ function OutputPlanet($planet, $text, $systemName){
 
     } 
 
-    file_put_contents('Output/' . $systemName . "/" . "-Planets/" . $planet->name . '.txt', $text);
+    file_put_contents('../Output/' . $systemName . "/" . "-Planets/" . $planet->name . '.txt', $text);
 }

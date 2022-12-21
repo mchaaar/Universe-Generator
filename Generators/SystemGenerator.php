@@ -2,14 +2,14 @@
 
 use function PHPSTORM_META\type;
 
-include_once('Generators/NameGenerator.php');
-require('Generators/ArtificialBodyGenerator.php');
-require('Generators/AsteroidGenerator.php');
-require('Generators/StarGenerator.php');
-require('Generators/PlanetGenerator.php');
-require('Generators/RomanGenerator.php');
-require('Generators/GateGenerator.php');
-require('Objects/System.php');
+include_once('../Generators/NameGenerator.php');
+require('../Generators/ArtificialBodyGenerator.php');
+require('../Generators/AsteroidGenerator.php');
+require('../Generators/StarGenerator.php');
+require('../Generators/PlanetGenerator.php');
+require('../Generators/RomanGenerator.php');
+require('../Generators/GateGenerator.php');
+require('../Objects/System.php');
 
 $entries = '';
 
@@ -26,7 +26,7 @@ function GenerateNewSystem($settings, $fileIndex){
     
     if ($settings[6] == 1){
         $fileName = $fileIndex . '-' . trim($system->name);
-        $path = "Output/" . $system->name;
+        $path = "../Output/" . $system->name;
         mkdir($path);
         fopen($path . "/" . $system->name . '.txt', 'w');
         mkdir($path . "/-Planets");
@@ -81,7 +81,7 @@ function FinalChecks(System $system, Planet $planet, string $fileName, bool $occ
 
     if ($valid){
         array_push($system->planets, $planet);
-        OutputPlanets($planet, 'Output/' . $fileName . '.txt', $system);
+        OutputPlanets($planet, '../Output/' . $fileName . '.txt', $system);
     } 
     
     else {

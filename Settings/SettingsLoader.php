@@ -1,10 +1,10 @@
 <?php
 
-require('Objects/Settings.php');
+require('../Objects/Settings.php');
 
 function LoadSettings(){
 
-    $settingsFile = "Settings/GeneralSettings.txt";
+    $settingsFile = "../Settings/GeneralSettings.txt";
     $allSettings = file($settingsFile);
 
     $settings = [];
