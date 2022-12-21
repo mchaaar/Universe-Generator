@@ -19,13 +19,24 @@ function GenerateNewUniverse($settings){
 }
 
 function DeleteOldFiles(){
-
-    $files = glob('Output'.'/*');
-    $keep = 'Output/infos.txt';
+    $things = glob('Output'.'/*');
    
-    foreach($files as $file) {
-        if (is_file($file) && basename($file) != basename($keep)) {
-            unlink($file); 
+    foreach ($things as $thing) {
+        if (is_dir($thing)) {
+            $firstDirs = glob($thing . "/*");
+            $planets = glob($firstDirs[0]. "/*");
+            foreach ($planets as $planet) {
+                if (is_file($planet)) {
+                    unlink($planet);
+                }
+            }
+            if (is_file($firstDirs[1])) {
+                unlink($firstDirs[1]);
+            }
+            if (is_dir($firstDirs[0])) {
+                rmdir($firstDirs[0]);
+            }
+            rmdir($thing);
         }
     }
 }

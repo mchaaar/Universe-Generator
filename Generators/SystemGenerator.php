@@ -26,14 +26,17 @@ function GenerateNewSystem($settings, $fileIndex){
     
     if ($settings[6] == 1){
         $fileName = $fileIndex . '-' . trim($system->name);
-        fopen('Output/' . $fileName . '.txt', 'w');
+        $path = "Output/" . $system->name;
+        mkdir($path);
+        fopen($path . "/" . $system->name . '.txt', 'w');
+        mkdir($path . "/-Planets");
     }
     
     $entries = 'System Name: ' . $system->name . "\n" . 'Amount of Planets: ' . $planetAmount . "\n\n";
 
     for ($i = 1; $i <= $planetAmount; $i++){
 
-        $planet = GenerateNewPlanet($settings[3], $settings[4], $settings[12], $settings[13], $settings[14], $settings[15], $settings[9]);
+        $planet = GenerateNewPlanet($system->name, $settings[3], $settings[4], $settings[12], $settings[13], $settings[14], $settings[15], $settings[9]);
         $occured = false;
         $valid = false;
 
@@ -60,7 +63,7 @@ function GenerateNewSystem($settings, $fileIndex){
         FinalChecks($system, $planet, $fileName, $occured, $valid, $i);
     }
 
-    file_put_contents('Output/' . $fileName . '.txt', $entries);
+    file_put_contents($path . "/" . $system->name . '.txt', $entries);
 
     AsteroidGeneration($system, $settings[7]);
     StarGeneration($system, $settings[10], $settings[11]);
@@ -78,7 +81,7 @@ function FinalChecks(System $system, Planet $planet, string $fileName, bool $occ
 
     if ($valid){
         array_push($system->planets, $planet);
-        OutputPlanet($planet, 'Output/' . $fileName . '.txt', $system);
+        OutputPlanets($planet, 'Output/' . $fileName . '.txt', $system);
     } 
     
     else {
@@ -122,7 +125,7 @@ function StarGeneration($system, $maxStartsPerSystem, $chanceOfAdditionalStar){
     }
 }
 
-function OutputPlanet(Planet $planet, $filePath, $system){
+function OutputPlanets(Planet $planet, $filePath, $system){
 
     global $entries;
     $entries .= $planet->name . "\n";
